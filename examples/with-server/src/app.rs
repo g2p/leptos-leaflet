@@ -51,12 +51,12 @@ fn HomePage() -> impl IntoView {
 
     create_effect(move |_| {
         if let Some(map) = map.get() {
-            log!("Map context {:?}", map);
+            logging::log!("Map context {:?}", map);
         }
     });
 
     let location_found = move |loc: LocationEvent| {
-        log!("hello from {:?}", loc.latlng());
+        logging::log!("hello from {:?}", loc.latlng());
     };
 
     let events = MapEvents::new().location_found(location_found);

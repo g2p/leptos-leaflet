@@ -18,7 +18,7 @@ async fn main() {
     let conf = get_configuration(None).await.unwrap();
     let leptos_options = conf.leptos_options;
     let addr = leptos_options.site_addr;
-    let routes = generate_route_list(|| view! { <App/> }).await;
+    let routes = generate_route_list(App);
 
     // build our application with a route
     let app = Router::new()
@@ -29,7 +29,7 @@ async fn main() {
 
     // run our app with hyper
     // `axum::Server` is a re-export of `hyper::Server`
-    log!("listening on http://{}", &addr);
+    logging::log!("listening on http://{}", &addr);
     axum::Server::bind(&addr)
         .serve(app.into_make_service())
         .await

@@ -170,7 +170,7 @@ pub fn Marker(
                         let t = format!("{} rotate({}deg)", t_re.replace(&t, ""), rotation);
                         let _ = internal_icon.style().set_property("transform", &t);
                     }
-                    // log!("Rotate: {}", &rotation);
+                    // logging::log!("Rotate: {}", &rotation);
                     let _ = internal_icon
                         .style()
                         .set_property("transform-origin", "center");

@@ -20,7 +20,7 @@ pub fn ImageOverlay(
     let map_context = use_context::<LeafletMapContext>().expect("map context not found");
     create_effect(move |_| {
         if let Some(map) = map_context.map() {
-            log!("Adding image layer: {}", url);
+            logging::log!("Adding image layer: {}", url);
             let mut options = leaflet::ImageOverlayOptions::new();
             if let Some(opacity) = opacity {
                 options.opacity(opacity.get_untracked());
